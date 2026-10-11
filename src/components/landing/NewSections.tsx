@@ -79,7 +79,7 @@ export function WhiteLabel() {
   const [c, setC] = useState(0);
   const [o, setO] = useState(0);
   const color = BRAND_COLORS[c]?.v ?? "var(--navy-700)";
-  const office = OFFICES[o] ?? OFFICES[0];
+  const office = OFFICES[o] ?? OFFICES[0]!;
   return (
     <section className="bg-surface py-24 lg:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1fr_1.1fr] lg:px-8">
