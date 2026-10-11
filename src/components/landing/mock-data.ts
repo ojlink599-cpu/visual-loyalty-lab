@@ -16,7 +16,7 @@ export function parseAd(text: string): Parsed {
   };
   const type = /فيلا/.test(t) ? "فيلا" : /أرض|ارض/.test(t) ? "أرض" : /شقة/.test(t) ? "شقة" : /دوبلكس/.test(t) ? "دوبلكس" : null;
   const loc = t.match(/(?:حي|في)\s+([\u0600-\u06FF]+(?:\s[\u0600-\u06FF]+)?)/)?.[1] ?? null;
-  const area = num(/(\d[\d,]*)\s*(?:م²|م2|متر|م\b)/);
+  const area = num(/(\d[\d,]*)\s*(?:م²|م2|متر|م\b)/) ?? num(/مساحة\s*(\d+)/);
   const price = num(/(?:السعر|بسعر|سعر)\s*:?\s*(\d[\d,]*)/) ?? num(/(\d[\d,]{5,})/);
   const rooms = num(/(\d+)\s*غرف/);
   const baths = num(/(\d+)\s*(?:حمام|دورات)/);
@@ -61,13 +61,32 @@ export const AUDIENCE_MSG = {
 
 export const PIPELINE = ["Lead", "Contacted", "Negotiation", "Won"] as const;
 
+export const VILLA = {
+  name: "فيلا الياقوت الملكية",
+  loc: "حي الملقا، الرياض",
+  price: 8_500_000,
+  downPct: 15,
+  down: 1_275_000,
+  monthly: 100_347,
+  months: 72,
+  ppm: 7_200,
+  roi: 12.8,
+};
+
+export const PASTE_SAMPLES = [
+  { label: "شقة · الرياض", text: SAMPLE_AD },
+  { label: "فيلا · الملقا", text: "فيلا للبيع في حي الملقا مساحة 420 متر، 6 غرف و5 حمامات، السعر 8,500,000 ريال، مقدم 15% وأقساط على 6 سنوات. مميزات: مسبح ومصعد" },
+  { label: "شقة · التجمع", text: "شقة في التجمع الخامس 180 متر 3 غرف 2 حمام بسعر 7,200,000 جنيه مقدم 10% والباقي على 8 سنوات" },
+];
+
 export const TEMPLATES = [
-  { id: "lux", name: "Executive Luxury", head: "bg-royal", accent: "bg-gold" },
-  { id: "modern", name: "Modern Investment", head: "bg-navy-500", accent: "bg-positive" },
-  { id: "brochure", name: "Marketing Brochure", head: "bg-gold", accent: "bg-navy-700" },
-  { id: "land", name: "Land & Development", head: "bg-gold-700", accent: "bg-navy-500" },
-  { id: "clean", name: "Clean Professional", head: "bg-mist", accent: "bg-navy-700" },
+  { id: "lux", name: "Executive Luxury", ar: "فاخر وراقي", fits: "قصور وفلل وكمبوندات فاخرة", c1: "var(--navy-700)", c2: "var(--gold-500)", font: "var(--font-display)" },
+  { id: "modern", name: "Modern Investment", ar: "استثماري حديث", fits: "عقارات مدرة للدخل وصفقات تجارية", c1: "var(--tpl-slate)", c2: "var(--tpl-emerald)", font: "var(--font-sans)" },
+  { id: "brochure", name: "Marketing Brochure", ar: "كتالوج تسويقي", fits: "شقق ومشاريع سكنية", c1: "var(--tpl-indigo)", c2: "var(--tpl-violet)", font: "var(--font-sans)" },
+  { id: "land", name: "Land & Development", ar: "تطوير وأراضي", fits: "أراضٍ خام ومخططات ومطورون", c1: "var(--tpl-earth)", c2: "var(--tpl-amber)", font: "var(--font-sans)" },
+  { id: "clean", name: "Clean Professional", ar: "رسمي كلاسيكي", fits: "عروض رسمية وبنوك وطباعة", c1: "var(--tpl-blue)", c2: "var(--tpl-blue)", font: "var(--font-sans)" },
 ] as const;
+export type Template = (typeof TEMPLATES)[number];
 
 // الأسعار غير محددة في المشروع بعد — قيم قابلة للتكوين.
 export const PLANS = [
