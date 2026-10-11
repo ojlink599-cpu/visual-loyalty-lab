@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar, Hero } from "@/components/landing/Hero";
-import { SmartPaste, Financial, AssetData, Marketing, CRM, InvestorExperience, Enterprise } from "@/components/landing/Features";
-import { ReportStudio, Pricing, Faq, FinalCta, Footer } from "@/components/landing/Closing";
+import { SmartPaste, Financial, AssetData, Marketing, CRM, InvestorExperience } from "@/components/landing/Features";
+import { ReportStudio } from "@/components/landing/Report";
+import { AIEditor, WhiteLabel, Calculator, Regional, AfterSignup } from "@/components/landing/NewSections";
+import { Pricing, Faq, FinalCta, Footer } from "@/components/landing/Closing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,12 +27,16 @@ function Index() {
         <Hero />
         <SmartPaste />
         <Financial />
+        <ReportStudio />
+        <AIEditor />
+        <WhiteLabel />
         <AssetData />
         <Marketing />
         <CRM />
-        <ReportStudio />
         <InvestorExperience />
-        <Enterprise />
+        <Calculator />
+        <Regional />
+        <AfterSignup />
         <Pricing />
         <Faq />
         <FinalCta />
