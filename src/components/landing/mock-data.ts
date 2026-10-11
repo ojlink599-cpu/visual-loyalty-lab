@@ -12,7 +12,7 @@ export function parseAd(text: string): Parsed {
   const t = text.replace(/[٠-٩]/g, (d) => String("٠١٢٣٤٥٦٧٨٩".indexOf(d)));
   const num = (re: RegExp) => {
     const m = t.match(re);
-    return m ? m[1].replace(/,/g, "") : null;
+    return m?.[1] ? m[1].replace(/,/g, "") : null;
   };
   const type = /فيلا/.test(t) ? "فيلا" : /أرض|ارض/.test(t) ? "أرض" : /شقة/.test(t) ? "شقة" : /دوبلكس/.test(t) ? "دوبلكس" : null;
   const loc = t.match(/(?:حي|في)\s+([\u0600-\u06FF]+(?:\s[\u0600-\u06FF]+)?)/)?.[1] ?? null;

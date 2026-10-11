@@ -246,8 +246,8 @@ export function Marketing() {
           <div className="rounded-3xl border border-line bg-ivory p-5 shadow-soft">
             <div className="mb-4 flex items-center justify-between"><p className="font-bold text-navy-900">المستشار الذكي</p><DemoTag>معاينة توضيحية</DemoTag></div>
             <div className="space-y-3 text-sm">
-              <p className="ms-auto w-fit max-w-[85%] rounded-2xl rounded-tl-sm bg-primary px-4 py-2.5 text-primary-foreground">{QA[q][0]}</p>
-              <p key={q} className="animate-in fade-in max-w-[90%] rounded-2xl rounded-tr-sm bg-surface px-4 py-2.5 leading-relaxed text-navy-900 shadow-soft">{QA[q][1]}</p>
+              <p className="ms-auto w-fit max-w-[85%] rounded-2xl rounded-tl-sm bg-primary px-4 py-2.5 text-primary-foreground">{QA[q]?.[0]}</p>
+              <p key={q} className="animate-in fade-in max-w-[90%] rounded-2xl rounded-tr-sm bg-surface px-4 py-2.5 leading-relaxed text-navy-900 shadow-soft">{QA[q]?.[1]}</p>
             </div>
             <div className="mt-4 flex gap-2">
               {QA.map((x, i) => <button key={i} onClick={() => setQ(i)} className={cn("flex-1 rounded-lg border px-2 py-2 text-xs transition", q === i ? "border-gold-500 bg-surface font-semibold" : "border-line text-text-2")}>{x[0]}</button>)}

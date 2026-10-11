@@ -15,7 +15,7 @@ export function ReportStudio() {
   const [exporting, setExporting] = useState(false);
   const [cmd, setCmd] = useState("");
   const [cmdDone, setCmdDone] = useState(false);
-  const t = TEMPLATES[tpl];
+  const t = TEMPLATES[tpl] ?? TEMPLATES[0];
   const pages = SECTIONS.filter((s) => on[s]);
   const cur = pages[Math.min(page, pages.length - 1)];
   return (
