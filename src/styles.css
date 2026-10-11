@@ -145,3 +145,25 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .circuit-draw { stroke-dashoffset: 0; transition: none; }
 }
+
+/* Report template palettes (used only inside report previews) */
+:root {
+  --tpl-emerald: oklch(0.52 0.12 165);
+  --tpl-slate: oklch(0.38 0.03 255);
+  --tpl-indigo: oklch(0.45 0.17 275);
+  --tpl-violet: oklch(0.55 0.18 300);
+  --tpl-amber: oklch(0.72 0.14 70);
+  --tpl-earth: oklch(0.45 0.06 50);
+  --tpl-blue: oklch(0.5 0.17 255);
+  --wa-green: oklch(0.93 0.05 150);
+}
+@theme inline {
+  --color-tpl-emerald: var(--tpl-emerald);
+  --color-tpl-slate: var(--tpl-slate);
+  --color-tpl-indigo: var(--tpl-indigo);
+  --color-tpl-violet: var(--tpl-violet);
+  --color-tpl-amber: var(--tpl-amber);
+  --color-tpl-earth: var(--tpl-earth);
+  --color-tpl-blue: var(--tpl-blue);
+  --color-wa-green: var(--wa-green);
+}
