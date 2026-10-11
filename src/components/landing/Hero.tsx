@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <header className={cn("sticky top-0 z-50 border-b transition", scrolled ? "border-line bg-surface/85 shadow-soft backdrop-blur-md" : "border-transparent bg-surface/70 backdrop-blur-sm")}>
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 lg:px-8" aria-label="التنقل الرئيسي">
-        <a href="#top" aria-label="عقاري AI — الرئيسية"><Logo className="h-12" /></a>
+        <a href="#top" aria-label="عقاري AI — الرئيسية"><Logo className="h-14" /></a>
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV.map((n) => (
             <li key={n.href}><a href={n.href} className="text-[15px] font-medium text-text-2 transition hover:text-navy-900">{n.label}</a></li>
@@ -71,7 +71,7 @@ export function Hero() {
   const s = SCENARIOS.realistic;
   return (
     <section id="top" className="relative overflow-hidden bg-surface">
-      <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-center gap-12 px-5 py-12 lg:grid-cols-[1fr_1.08fr] lg:px-8 lg:py-16">
+      <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-center gap-12 px-5 py-12 lg:grid-cols-[1.15fr_1fr] lg:px-8 lg:py-16">
         {/* Text */}
         <div>
           <p dir="ltr" className="eyebrow mb-6 text-end uppercase text-gold-700">Real Estate Intelligence</p>
